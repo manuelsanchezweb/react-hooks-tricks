@@ -10,7 +10,7 @@ function App() {
     <>
       <SelectMenu />
      
-      <Route path="/home" component={PageHome} />
+      <Route path="/" component={PageHome} />
       <Route path="/use-state" component={PageUseState} />
       <Route path="/use-effect" component={PageUseEffect} />
     </>
