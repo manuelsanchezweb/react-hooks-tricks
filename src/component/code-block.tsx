@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import hljs from "highlight.js";
 import typescript from "highlight.js/lib/languages/typescript";
-import "highlight.js/styles/mono-blue.css?inline";
+import "highlight.js/styles/atom-one-dark-reasonable.css";
 
 type CodeBlockProps = {
     children: React.ReactNode;
@@ -17,7 +17,7 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
     }, [children]);
 
     return (
-        <pre style={{tabSize: 2}}>
+        <pre className="my-2" style={{tabSize: 2}}>
             <code ref={codeRef} lang="tsx">
                 {children}
             </code>

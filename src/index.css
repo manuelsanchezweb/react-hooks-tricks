@@ -11,28 +11,51 @@
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --color-bg: #f2f2f2;
+  --color-text: #444444;
+  --bold-text: #222;
+  --nav-text: #000000;
+  --code: #f2f2f2;
+  --block-quote-border: #8e32dc;
+  --block-quote-text: #222;
+  --slider-bg: #dddddd;
+  --slider-bg-before: #fff;
+  --slider-input-bg: #8758ff;
+  --color-primary: #646cff;
+  --color-primary-dark: #535bf2;
+}
 
-  color-scheme: light;
-  color: #213547;
-  background-color: #f9f9f9;
+[data-theme="light"] {
+  --color-bg: #f2f2f2;
+  --color-text: #444444;
+  --bold-text: #222;
+  --nav-text: #000000;
+  --code: #f2f2f2;
+  --block-quote-border: #8e32dc;
+  --block-quote-text: #222;
+  --slider-bg: #dddddd;
+  --slider-bg-before: #fff;
+  --slider-input-bg: #8758ff;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+[data-theme="dark"] {
+  --color-bg: #000;
+  --color-text: #dddddd;
+  --bold-text: #eeeeee;
+  --nav-text: #dddddd;
+  --code: #f2f2f2;
+  --block-quote-border: #8e32dc;
+  --block-quote-text: #dddddd;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--color-primary);
   text-decoration: inherit;
 }
+
 a:hover {
-  color: #535bf2;
+  color: var(--color-primary-dark);
 }
 
 body {
@@ -41,8 +64,13 @@ body {
   flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
-  max-width: 1200px;
+  max-width: 1000px;
   padding: 1.5em;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Inter", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.75;
 }
 
 h1 {
@@ -50,17 +78,25 @@ h1 {
   line-height: 1.1;
 }
 
+h2 {
+  color: var(--color-primary);
+  text-decoration: none !important;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
 button {
   border-radius: 8px;
   padding: 0.3em 0.6em;
-  background-color:  #d2d2d2;
-  border: 1px solid black;
+  background-color:  var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-primary);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: var(--color-primary);
 }
 
 button:focus,
@@ -68,13 +104,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#eaeef3;color:#00193a}.hljs-doctag,.hljs-keyword,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-strong,.hljs-title{font-weight:700}.hljs-comment{color:#738191}.hljs-addition,.hljs-built_in,.hljs-literal,.hljs-name,.hljs-quote,.hljs-section,.hljs-selector-class,.hljs-selector-id,.hljs-string,.hljs-tag,.hljs-title,.hljs-type{color:#0048ab}.hljs-attribute,.hljs-bullet,.hljs-deletion,.hljs-link,.hljs-meta,.hljs-regexp,.hljs-subst,.hljs-symbol,.hljs-template-variable,.hljs-variable{color:#4c81c9}.hljs-emphasis{font-style:italic}
+pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#abb2bf;background:#282c34}.hljs-keyword,.hljs-operator,.hljs-pattern-match{color:#f92672}.hljs-function,.hljs-pattern-match .hljs-constructor{color:#61aeee}.hljs-function .hljs-params{color:#a6e22e}.hljs-function .hljs-params .hljs-typing{color:#fd971f}.hljs-module-access .hljs-module{color:#7e57c2}.hljs-constructor{color:#e2b93d}.hljs-constructor .hljs-string{color:#9ccc65}.hljs-comment,.hljs-quote{color:#b18eb1;font-style:italic}.hljs-doctag,.hljs-formula{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#e6c07b}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}
 
 .select-wrapper {
   position: relative;
   max-width: 300px;
   width: 100%;
-  margin-bottom: 2em;
+
 }
 
 .select-wrapper select {
@@ -86,15 +122,102 @@ pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5p
   padding-right: 30px; /* Make room for the custom arrow */
   width: 100%;
   max-width: 300px;
+  color: var(--color-primary);
 }
 
 /* Create a custom select arrow */
 .select-wrapper::after {
-  content: '▼';
+  content: '↓';
   position: absolute;
-  right: 10px; /* Position the arrow a bit to the left */
+  right: 15px; /* Position the arrow a bit to the left */
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none; /* Make it unclickable */
   margin: auto; /* Vertically center the arrow */
+  color: var(--color-primary);
+}
+
+.theme-switch-wrapper {
+  display: flex;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: var(--slider-bg);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  background-color: var(--slider-bg-before);
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--slider-input-bg);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider svg {
+  color: #222;
+  position: absolute;
+  transition: opacity 0.2s ease 0s, transform 0.35s ease 0s;
+  pointer-events: none;
+}
+
+.feather-moon {
+  opacity: 0;
+  left: 9px;
+  bottom: 9px;
+  transform: translateX(4px);
+}
+
+.feather-sun {
+  opacity: 1;
+  right: 10px;
+  bottom: 9px;
+  transform: translateX(0px);
+}
+
+input:checked + .slider .feather-moon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+input:checked + .slider .feather-sun {
+  opacity: 0;
+  transform: translateX(-4px);
+}
+
+code {
+  background-color: var(--block-quote-border);
+  color: var(--slider-bg-before);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
 }

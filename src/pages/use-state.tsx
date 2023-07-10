@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import CodeBlock from '../component/code-block'
 import { Link } from 'wouter'
+import Button from '../component/button'
+import YouTubeVideo from '../component/youtube-video'
 
 const PageUseState = () => {
   // 1. Crear un estado y actualizarlo con un botón
@@ -40,6 +42,7 @@ const PageUseState = () => {
   return (
     <section className="flex flex-col gap-4 mb-12">
       <h1 className="text-3xl md:text-5xl mb-12 font-bold">useState</h1>
+      <YouTubeVideo />
       <p>
         Con useState podemos ver el estado de un componente y actualizarlo en el
         momento que queramos. Es por ello que la estructura básica es la
@@ -49,7 +52,7 @@ const PageUseState = () => {
         <span>
           Este es el número: <strong>{count}</strong>
         </span>
-        <button onClick={increase}>Aumentar +1</button>
+        <Button onClick={increase}>+1</Button>
       </div>
 
       <CodeBlock>
@@ -73,12 +76,12 @@ return (
       <h2 className="text-2xl mb-6 w-fit underline">¿Por qué todo se renderiza 2 veces?</h2>
       <CodeBlock>
       {`
-      // src/main.tsx
-      ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-        <React.StrictMode>
-            <App />
-        </React.StrictMode>,
-      )
+  // src/main.tsx
+  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+  )
 `}
       </CodeBlock>
       <p>Esta es una pregunta muy típica. Es un fenómeno que sucede con React en el entorno de desarrollo debido al StrictMode. Por eso verás entre varias cosas que los console.logs salen duplicados. Una vez despliegues la aplicación, todo funcionará como debe ser. Es una medida de seguridad que ayuda a React a buscar potenciales problemas en el desarrollo.</p>
@@ -89,7 +92,7 @@ return (
         <span>
           Este es el número: <strong>{countWithLastValue}</strong>
         </span>
-        <button onClick={increaseWithLastValue}>Aumentar +1</button>
+        <Button onClick={increaseWithLastValue}>+1</Button>
       </div>
       <CodeBlock>
         {`
@@ -141,17 +144,17 @@ return (
 )
   `}
       </CodeBlock>
-      <div className="flex gap-4 items-center">
+      <div className="flex flex-col md:flex-row gap-4 md:items-center">
         <span>
           Luis tiene <strong>{friends.luis}</strong> amigos
         </span>
-        <button onClick={increaseLuis}>Aumentar +1 los amigos de Luis</button>
+        <Button onClick={increaseLuis}>Aumentar +1 los amigos de Luis</Button>
       </div>
-      <div className="flex gap-4 items-center">
+      <div className="flex flex-col md:flex-row gap-4 md:items-center">
         <span>
           Paco tiene <strong>{friends.paco}</strong> amigos
         </span>
-        <button onClick={increasePaco}>Aumentar +1 los amigos de Paco</button>
+        <Button onClick={increasePaco}>Aumentar +1 los amigos de Paco</Button>
       </div>
       <p>O algo mejor:</p>
       <CodeBlock>
@@ -183,7 +186,7 @@ const [friends, setFriends] = useState({
       <h2 className="text-2xl mb-6 w-fit underline">Actualizar un array</h2>
       <p>De la misma forma podemos actualizar un array haciendo una copia del mismo y haciendo las modificaciones desde ahí.</p>
       <div>
-        <button onClick={addNextNumber}>Añade el siguiente número</button>
+        <Button onClick={addNextNumber}>Añade el siguiente número</Button>
         <ul className="flex gap-2 my-2 max-w-full flex-wrap">
             {numbers.map((number, index) => (
             <li key={index}>{number}</li>

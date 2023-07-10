@@ -1,0 +1,86 @@
+import { useEffect } from 'react'
+
+// Function that will switch the theme based on the if the theme toggle is checked or not
+function switchTheme(e: any) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    localStorage.setItem('theme', 'dark')
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light')
+    localStorage.setItem('theme', 'light')
+  }
+}
+
+const ToggleSwitcher = () => {
+  useEffect(() => {
+    // Get the theme toggle input
+    const themeToggle = document.querySelector(
+      '.theme-switch input[type="checkbox"]'
+    ) as HTMLInputElement
+
+    // Get the current theme from local storage
+    const currentTheme = localStorage.getItem('theme')
+
+    // If the current local storage item can be found
+    if (currentTheme) {
+      // Set the body data-theme attribute to match the local storage item
+      document.documentElement.setAttribute('data-theme', currentTheme)
+
+      // If the current theme is dark, check the theme toggle
+      if (currentTheme === 'dark') {
+        themeToggle.checked = true
+      }
+    }
+
+    // Add an event listener to the theme toggle, which will switch the theme
+    themeToggle.addEventListener('change', switchTheme, false)
+  }, [])
+
+  return (
+    <div className="theme-switch-wrapper">
+      <label className="theme-switch" htmlFor="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div className="slider">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="#FCD53F"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-sun"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="#FCD53F"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-moon"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </div>
+      </label>
+    </div>
+  )
+}
+
+export default ToggleSwitcher

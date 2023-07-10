@@ -19,18 +19,19 @@ const SelectMenu = () => {
   const CUSTOM_HOOKS = [
     // { value: '/use-input', label: 'Hook useInput' },
     { value: '/use-debounced', label: 'Hook useDebounced' },
+    { value: '/use-window-width', label: 'Hook useWindowWidth' },
   ]
 
   return (
     <div className="flex flex-col items-center gap-4 my-6">
-      <label htmlFor="content">Contenido de React</label>
       <div className="select-wrapper">
         <select
-          className="border border-black px-2 py-4 max-w-[200px]"
+          className="border border-black rounded-md text-xs py-3 max-w-[200px]"
           onChange={handleSelectChange}
           value={location}
           name="content"
         >
+          <option value="/">Inicio</option>
           <optgroup label="React Hooks">
             {REACT_HOOKS.map((hook, index) => (
               <option key={index} value={hook.value}>
