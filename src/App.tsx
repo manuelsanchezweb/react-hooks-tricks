@@ -1,12 +1,8 @@
-import { Link, Route } from 'wouter'
-import PageUseState from './pages/use-state'
-import PageUseEffect from './pages/use-effect'
-import PageHome from './pages/home'
+import { Link } from 'wouter'
 import SelectMenu from './component/select-menu'
-import PageUseMemo from './pages/use-memo'
-import PageUseDebounced from './pages/custom-use-debounced'
 import ToggleSwitcher from './component/toggle-mode'
-import PageUseWindowWidth from './pages/custom-use-window-width'
+import RoutingSystem from './component/routing-system'
+import Pagination from './component/pagination'
 
 function App() {
 
@@ -22,13 +18,11 @@ function App() {
         </div>
    
       </header>
+      
+      <Pagination />
 
-      <Route path="/" component={PageHome} />
-      <Route path="/use-state" component={PageUseState} />
-      <Route path="/use-effect" component={PageUseEffect} />
-      <Route path="/use-memo" component={PageUseMemo} />
-      <Route path="/use-debounced" component={PageUseDebounced} />
-      <Route path="/use-window-width" component={PageUseWindowWidth} />
+     <RoutingSystem />
+
     </>
   )
 }
