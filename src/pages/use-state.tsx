@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import CodeBlock from '../component/code-block'
-import { Link } from 'wouter'
 import Button from '../component/button'
 import YouTubeVideo from '../component/youtube-video'
+import Heading from '../component/heading'
+import Pagination from '../component/pagination'
 
 const PageUseState = () => {
   // 1. Crear un estado y actualizarlo con un botón
@@ -30,18 +31,18 @@ const PageUseState = () => {
       paco: prevFriends.paco + 1,
     }))
 
-    // 4. Crear un array de números y añadir el siguiente  con un botón
-    const [numbers, setNumbers] = useState([1, 2, 3]);
+  // 4. Crear un array de números y añadir el siguiente  con un botón
+  const [numbers, setNumbers] = useState([1, 2, 3])
 
-    const addNextNumber = () => {
-        const maxNumber = Math.max(...numbers);
-        const nextNumber = maxNumber + 1;
-        setNumbers(prevNumbers => [...prevNumbers, nextNumber]);
-    };
+  const addNextNumber = () => {
+    const maxNumber = Math.max(...numbers)
+    const nextNumber = maxNumber + 1
+    setNumbers((prevNumbers) => [...prevNumbers, nextNumber])
+  }
 
   return (
     <section className="flex flex-col gap-4 mb-12">
-      <h1 className="text-3xl md:text-5xl mb-12 font-bold">useState</h1>
+      <Heading title="useState" />
       <YouTubeVideo />
       <p>
         Con useState podemos ver el estado de un componente y actualizarlo en el
@@ -73,9 +74,11 @@ return (
         Hasta aquí la parte sencilla. Hoy os quería traer unos casos más
         avanzados de useState.
       </p>
-      <h2 className="text-2xl mb-6 w-fit underline">¿Por qué todo se renderiza 2 veces?</h2>
+      <h2 className="text-2xl mb-6 w-fit underline">
+        ¿Por qué todo se renderiza 2 veces?
+      </h2>
       <CodeBlock>
-      {`
+        {`
   // src/main.tsx
   ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
@@ -84,7 +87,13 @@ return (
   )
 `}
       </CodeBlock>
-      <p>Esta es una pregunta muy típica. Es un fenómeno que sucede con React en el entorno de desarrollo debido al StrictMode. Por eso verás entre varias cosas que los console.logs salen duplicados. Una vez despliegues la aplicación, todo funcionará como debe ser. Es una medida de seguridad que ayuda a React a buscar potenciales problemas en el desarrollo.</p>
+      <p>
+        Esta es una pregunta muy típica. Es un fenómeno que sucede con React en
+        el entorno de desarrollo debido al StrictMode. Por eso verás entre
+        varias cosas que los console.logs salen duplicados. Una vez despliegues
+        la aplicación, todo funcionará como debe ser. Es una medida de seguridad
+        que ayuda a React a buscar potenciales problemas en el desarrollo.
+      </p>
       <h2 className="text-2xl mb-6 w-fit underline">
         Hacer algo a partir del estado anterior
       </h2>
@@ -182,18 +191,27 @@ const [friends, setFriends] = useState({
 )
   `}
       </CodeBlock>
-      <p>En ambos casos hacemos uso del Spread Operator (...estado), que lo que hace es crear una copia del objeto y aplicarle algunos cambios a ese objeto en lugar de modificar el estado directamente. Así respeta el principio de inmutabilidad de React, que es fundamental para la gestión del estado. También se puede hacer con arrays.</p>
+      <p>
+        En ambos casos hacemos uso del Spread Operator (...estado), que lo que
+        hace es crear una copia del objeto y aplicarle algunos cambios a ese
+        objeto en lugar de modificar el estado directamente. Así respeta el
+        principio de inmutabilidad de React, que es fundamental para la gestión
+        del estado. También se puede hacer con arrays.
+      </p>
       <h2 className="text-2xl mb-6 w-fit underline">Actualizar un array</h2>
-      <p>De la misma forma podemos actualizar un array haciendo una copia del mismo y haciendo las modificaciones desde ahí.</p>
+      <p>
+        De la misma forma podemos actualizar un array haciendo una copia del
+        mismo y haciendo las modificaciones desde ahí.
+      </p>
       <div>
         <Button onClick={addNextNumber}>Añade el siguiente número</Button>
         <ul className="flex gap-2 my-2 max-w-full flex-wrap">
-            {numbers.map((number, index) => (
+          {numbers.map((number, index) => (
             <li key={index}>{number}</li>
-            ))}
+          ))}
         </ul>
       </div>
-    
+
       <CodeBlock>
         {`
 
@@ -217,10 +235,12 @@ const addNextNumber = () => {
 )
   `}
       </CodeBlock>
-      <p>Esto es todo lo que quería explicar sobre useState. ¡Espero que te haya gustado la explicación!</p>
-      <Link href="/">
-        <a className="link">Ir a Inicio</a>
-      </Link>
+      <p>
+        Esto es todo lo que quería explicar sobre useState. ¡Espero que te haya
+        gustado la explicación!
+      </p>
+      
+      <Pagination />
     </section>
   )
 }

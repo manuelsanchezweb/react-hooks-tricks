@@ -1,4 +1,4 @@
-import PageUseDebounced from "../pages/custom-use-debounced"
+import PageUseDebounce from "../pages/custom-use-debounce"
 import PageUseWindowWidth from "../pages/custom-use-window-width"
 import PageHome from "../pages/home"
 import PageUseEffect from "../pages/use-effect"
@@ -27,7 +27,7 @@ export const routes: Routes = {
     { name: 'Hook useMemo', path: '/use-memo', component: PageUseMemo },
   ],
   'Custom Hook': [
-    { name: 'Hook useDebounced', path: '/use-debounced', component: PageUseDebounced  },
+    { name: 'Hook useDebounce', path: '/use-debounce', component: PageUseDebounce  },
     { name: 'Hook useWindowWidth', path: '/use-window-width', component: PageUseWindowWidth },
   ],
 }

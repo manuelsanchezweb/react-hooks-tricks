@@ -1,10 +1,10 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import hljs from "highlight.js";
 import typescript from "highlight.js/lib/languages/typescript";
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 
 type CodeBlockProps = {
-    children: React.ReactNode;
+    children: any;
 }
 const CodeBlock = ({ children }: CodeBlockProps) => {
     const codeRef = useRef(null);

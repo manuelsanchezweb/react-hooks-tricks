@@ -3,7 +3,7 @@
       { "source": "/use-state", "destination": "/index.html" },
       { "source": "/use-effect", "destination": "/index.html" },
       { "source": "/use-memo", "destination": "/index.html" },
-      { "source": "/use-debounced", "destination": "/index.html" },
+      { "source": "/use-debounce", "destination": "/index.html" },
       { "source": "/use-window-width", "destination": "/index.html" },
       { "source": "/", "destination": "/index.html" }
     ]
