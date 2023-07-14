@@ -297,6 +297,7 @@ const PageUseEffect = () => {
           const response = await fetch(
             'https://jsonplaceholder.typicode.com/users'
           );
+          if(!response.ok) throw Error('Ha habido un problema con la API en la respuesta');
           const result = await response.json();
   
           setData(result);
