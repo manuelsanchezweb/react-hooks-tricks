@@ -23,22 +23,22 @@ const PageUseWindowWidth = () => {
         const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     
         const handleResize = () => {
-        setWindowWidth(window.innerWidth);
+          setWindowWidth(window.innerWidth);
         };
     
         useEffect(() => {
-        window.addEventListener('resize', handleResize);
+          window.addEventListener('resize', handleResize);
     
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+          return () => {
+              window.removeEventListener('resize', handleResize);
+          };
         }, []); // Este efecto no depende de ninguna prop o estado, así que no tiene dependencias y se ejecutará una sola vez
     
         return windowWidth;
     }
     
     export default useWindowWidth;
-                `}
+    `}
       </CodeBlock>
 
       <p>Luego solo lo tenemos que importar de la siguiente forma:</p>
