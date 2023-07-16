@@ -268,6 +268,53 @@ const PageUseEffect = () => {
           ))}
       </ul>
 
+      <p>
+        También podemos mejorar un poco este código añadiendo un{' '}
+        <code>AbortController</code>, que se va a encargar de desmontar el
+        useEffect una vez el componente ya no esté en pantalla. Con ello haremos
+        que se cancelen las peticiones asíncronas. Para ello tenemos que adaptar
+        el código de la siguiente forma:
+      </p>
+
+      <CodeBlock>
+        {`
+    const [data, setData] = useState(null)
+
+    useEffect(() => {
+      const controller = new AbortController()
+      const signal = controller.signal
+
+      const fetchData = async () => {
+        try {
+          const response = await fetch(
+            'https://jsonplaceholder.typicode.com/users'
+          )
+          const result = await response.json()
+          setData(result)
+          console.log(result)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+  
+      fetchData()
+
+      return () => {
+        controller.abort()
+      }
+    }, [])
+
+
+    return (
+      <ul className='grid grid-cols-2 md:grid-cols-3'>
+        {data &&
+          data.map((user: any, index: number) => (
+            <li className="p-4" key={index}>{user.name}</li>
+          ))}
+      </ul>
+    )
+    `}
+      </CodeBlock>
       <Heading
         variant="h2"
         title="Gestionando los estados de 'loading' y 'error'"
