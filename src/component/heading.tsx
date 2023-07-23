@@ -4,26 +4,22 @@ interface HeadingProps {
   extraClasses?: string
 }
 
-const Heading = ({ title, variant = "h1", extraClasses }: HeadingProps) => {
+const Heading = ({ title, variant = 'h1', extraClasses }: HeadingProps) => {
   return (
     <>
       {variant === 'h1' && (
-        <h1
-          className={`text-3xl md:text-5xl mb-4 font-bold ${extraClasses}`}
-        >
+        <h1 className={`text-3xl md:text-5xl mb-4 font-bold ${extraClasses}`}>
           {title}
         </h1>
       )}
       {variant === 'h2' && (
-        <h2
-          className={`text-2xl md:text-4xl mb-4 font-bold ${extraClasses}`}
-        >
+        <h2 className={`text-2xl md:text-4xl mb-4 font-bold ${extraClasses}`}>
           {title}
         </h2>
       )}
       {variant === 'h3' && (
         <h3
-          className={`text-[1vw] leading-none  font-semibold mb-4 ${extraClasses}`}
+          className={`text-xl leading-none font-semibold mb-4 ${extraClasses}`}
         >
           {title}
         </h3>
