@@ -4,6 +4,7 @@ import CodeBlock from '../component/code-block'
 import { Link } from 'wouter'
 import Heading from '../component/heading'
 import Pagination from '../component/pagination'
+import YouTubeVideo from '../component/youtube-video'
 
 const PageUseEffect = () => {
   interface User {
@@ -92,6 +93,7 @@ const PageUseEffect = () => {
   return (
     <section className="flex flex-col gap-4 mb-12">
       <Heading title="useEffect" />
+      <YouTubeVideo id="fvERkIfFLmo" />
       <p>
         Nos gusta entender useEffect como un hook que nos permite hacer cosas
         cuando el componente{' '}
