@@ -1,5 +1,4 @@
 import { Link } from 'wouter'
-// import Newsletter from '../component/newsletter'
 
 const PageHome = () => {
   return (
@@ -16,16 +15,24 @@ const PageHome = () => {
         <a>Empecemos</a>
       </Link>
 
-      {/* <div className="flex flex-col items-center md:items-start gap-2 md:gap-4">
-        <h1 className="mt-6 text-3xl md:text-5xl">
+      <div className="flex flex-col md:items-start gap-2 md:gap-4">
+        <h2 className="mt-6 text-2xl">
           Una nueva forma de aprender desarrollo web
-        </h1>
+        </h2>
         <p>
           ¡Contenido actual e inédito cada semana sobre tus tecnologías
           favoritas!
         </p>
-        <Newsletter />
-      </div> */}
+
+        <a
+          className="btn max-w-fit"
+          target="_blank"
+          title="Abonarte a la newsletter"
+          href="https://manuelsanchezweb.us21.list-manage.com/subscribe?u=884780a19b6d2a27ff1395e35&id=86106f7d0c"
+        >
+          Sigue todo lo que hago
+        </a>
+      </div>
     </div>
   )
 }

@@ -29,7 +29,7 @@ html {
   --color-primary-dark: #535bf2;
 }
 
-[data-theme="light"] {
+[data-theme='light'] {
   --color-bg: #f2f2f2;
   --color-text: #444444;
   --bold-text: #222;
@@ -42,7 +42,7 @@ html {
   --slider-input-bg: #8758ff;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --color-bg: #000;
   --color-text: #dddddd;
   --bold-text: #eeeeee;
@@ -72,7 +72,7 @@ body {
   padding: 1.5em;
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.125rem;
   line-height: 1.75;
 }
@@ -89,32 +89,128 @@ h2 {
   font-weight: 600;
 }
 
-button {
+button,
+.btn {
   border-radius: 8px;
   padding: 0.3em 0.6em;
-  background-color:  var(--color-bg);
+  background-color: var(--color-bg);
   color: var(--color-text);
   border: 1px solid var(--color-primary);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
-button:hover {
+button:hover,
+.btn:hover {
   border-color: var(--color-primary);
 }
 
 button:focus,
-button:focus-visible {
+button:focus-visible,
+.btn:focus,
+.btn:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#abb2bf;background:#282c34}.hljs-keyword,.hljs-operator,.hljs-pattern-match{color:#f92672}.hljs-function,.hljs-pattern-match .hljs-constructor{color:#61aeee}.hljs-function .hljs-params{color:#a6e22e}.hljs-function .hljs-params .hljs-typing{color:#fd971f}.hljs-module-access .hljs-module{color:#7e57c2}.hljs-constructor{color:#e2b93d}.hljs-constructor .hljs-string{color:#9ccc65}.hljs-comment,.hljs-quote{color:#b18eb1;font-style:italic}.hljs-doctag,.hljs-formula{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#e6c07b}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+code.hljs {
+  padding: 3px 5px;
+}
+.hljs {
+  color: #abb2bf;
+  background: #282c34;
+}
+.hljs-keyword,
+.hljs-operator,
+.hljs-pattern-match {
+  color: #f92672;
+}
+.hljs-function,
+.hljs-pattern-match .hljs-constructor {
+  color: #61aeee;
+}
+.hljs-function .hljs-params {
+  color: #a6e22e;
+}
+.hljs-function .hljs-params .hljs-typing {
+  color: #fd971f;
+}
+.hljs-module-access .hljs-module {
+  color: #7e57c2;
+}
+.hljs-constructor {
+  color: #e2b93d;
+}
+.hljs-constructor .hljs-string {
+  color: #9ccc65;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #b18eb1;
+  font-style: italic;
+}
+.hljs-doctag,
+.hljs-formula {
+  color: #c678dd;
+}
+.hljs-deletion,
+.hljs-name,
+.hljs-section,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #e06c75;
+}
+.hljs-literal {
+  color: #56b6c2;
+}
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string,
+.hljs-regexp,
+.hljs-string {
+  color: #98c379;
+}
+.hljs-built_in,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #e6c07b;
+}
+.hljs-attr,
+.hljs-number,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-pseudo,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable {
+  color: #d19a66;
+}
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-symbol,
+.hljs-title {
+  color: #61aeee;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 700;
+}
+.hljs-link {
+  text-decoration: underline;
+}
 
 .select-wrapper {
   position: relative;
   max-width: 300px;
   width: 100%;
-
 }
 
 .select-wrapper select {
@@ -171,7 +267,7 @@ pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5p
 .slider:before {
   background-color: var(--slider-bg-before);
   bottom: 4px;
-  content: "";
+  content: '';
   height: 26px;
   left: 4px;
   position: absolute;
