@@ -8,12 +8,12 @@ import React, { useEffect, useState } from 'react'
 // @ts-ignore
 import { Client } from 'appwrite'
 
+const appwriteID = import.meta.env.VITE_APPWRITE_ID
+
 function App() {
   const client = new Client()
 
-  client
-    .setEndpoint('https://cloud.appwrite.io/v1')
-    .setProject('64c287297596773e7547')
+  client.setEndpoint('https://cloud.appwrite.io/v1').setProject(appwriteID)
 
   const [isFlag, setIsFlag] = useState(false)
   const googleTranslateElementInit = () => {
