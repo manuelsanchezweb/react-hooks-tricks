@@ -5,8 +5,16 @@ import RoutingSystem from './component/routing-system'
 import Pagination from './component/pagination'
 import ScrollToTop from './hoc/ScrollToTop'
 import React, { useEffect, useState } from 'react'
+// @ts-ignore
+import { Client } from 'appwrite'
 
 function App() {
+  const client = new Client()
+
+  client
+    .setEndpoint('https://cloud.appwrite.io/v1')
+    .setProject('64c287297596773e7547')
+
   const [isFlag, setIsFlag] = useState(false)
   const googleTranslateElementInit = () => {
     // @ts-ignore
@@ -20,6 +28,7 @@ function App() {
       'google_translate_element'
     )
   }
+
   useEffect(() => {
     if (isFlag == true) return
     const addScript = document.createElement('script')
